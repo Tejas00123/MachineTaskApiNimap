@@ -14,7 +14,7 @@ public class ProductMgmtServiceImpl implements IProductMgmtService {
 	private IProductRepo repo;
   
 	@Override
-	public Page<Product> getAllCategories(Pageable pageable) {
+	public Page<Product> getAllProducts(Pageable pageable) {
 		Page<Product> page = repo.findAll(pageable);
 		return page;
 	}

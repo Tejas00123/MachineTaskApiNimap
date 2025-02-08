@@ -2,7 +2,8 @@ package com.mt.entity;
 
 import java.util.List;
 
-import jakarta.annotation.Generated;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,15 +21,16 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="category")
+@Table(name="categories")
 public class Category {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
     private Long id;
 	
 	@Column(length = 50)
     private String name;
 	
     @OneToMany(mappedBy = "category",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonManagedReference  // Prevent infinite recursion in JSON
     private List<Product> products;
 }

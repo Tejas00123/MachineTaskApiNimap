@@ -7,7 +7,7 @@ import com.mt.entity.Product;
 
 public interface IProductMgmtService {
 
-	public Page<Product> getAllCategories(Pageable pageable);
+	public Page<Product> getAllProducts(Pageable pageable);
 	public Product createNewProduct(Product product);
 	public Product getProductById(Long id);
 	public Product updateProductById(Long id,Product upDateProduct);
